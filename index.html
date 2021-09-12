@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script>
+el = document.getElementById("simple-ss");
+el.onclick = links;
+
+function links() {
+  left = parseInt(getComputedStyle(el).getPropertyValue("background-position").split(" ", 1));
+   
+  /* DEFINE POSITIONS FOR CLICK EVENTS */
+  if (left >= -400) {
+  
+    // First until about half way scrolled over
+    alert("first");
+    //window.open("https://www.google.com");
+  
+  } else if (left >= -1200) {
+  
+    // Second when half way scrolled either side
+    alert("second");
+    //window.open("https://www.google.com");
+    
+  } else if (left >= -1600) {
+    
+    // Third when over half way into banner
+    alert("third");
+    //window.open("https://www.google.com");
+    
+  }
+   
+}
+        </script>
+        <style>
+/* USUAL STUFF */
+body { margin:10px auto; text-align:center; }
+.content { max-width:800px;text-align:left; margin:auto; }
+
+/* THE DIV */
+.simple-ss {
+  width:800px;
+  height:250px;
+  background-color:red;
+  margin:auto;
+  background-image:url("https://imgur.com/download/OtK7XDW");
+  background-position:0;
+  background-repeat:no-repeat;
+  background-size:cover;
+
+/* ANIMATING STUFF */
+  animation-name: slide;
+  animation-duration: 13s;
+  animation-direction: normal;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+/* NOTE CODEPEN AUTOGENERATING -PREFIXES */
+@keyframes slide {
+  0% {background-position:0 0;}
+  16.66% {background-position:0 0;}
+  33.32% {background-position:-800px 0;}
+  49.98% {background-position:-800px 0;}
+  66.64% {background-position:-1600px 0;}
+  83.30% {background-position:-1600px 0;}
+  100% {background-position:0 0;}
+}
+        </style>
+
+    </head>
+    <body>
+        <!-- All you need is this one div!-->
+<div class="simple-ss" id="simple-ss"></div>
+
+
+<!-- Some junk -->
+<div class="content">
+  <p>This is a proof-of-concept for a slideshow that doesn't use any Javascript. It does not have pages or left/right buttons etc.
+  <ul>
+    <li>hello welcome to movie tmdb .</li>
+    <li>Place all your slides side-by-side in a <strong>single</strong> image.</li>
+    <li>An application that shows you all the distinguished movies.</li>
+    <li>An application that shows you all the distinguished movies and shortens the time for you in searching for a special movie.</li>
+    <li>This project is using Codepen's built-in -prefix-free setting, otherwise you need all those prefixes too!</li>
+    <li>The Javascript is optional and is only there to enable clicking on each banner. If you want, you can remove all that and use a click event just on the div itself (one link for the entire slideshow). You will have to calculate the range of positions you want to be enabled for each banner click event. For example on the first banner, it is only clickable until it scrolls about half way to the 2nd banner, then the click fires on the second banner.</li>
+  </ul>
+  </p>
+
+<p>Images taken from random Lorempixel.com images.</p>
+</div>
+    </body>
+</html>
